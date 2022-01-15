@@ -63,6 +63,11 @@ function M.diagnostics_hook(diag_changed)
       print("winenter hook")
     end
   end
+
+  if diag_changed and M.open_on_error then
+    api.nvim_command('cwindow')
+  end
+
   l.diagnostics_hook()
   q.diagnostics_hook()
 end

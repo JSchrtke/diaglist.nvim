@@ -33,11 +33,7 @@ local function populate_qflist()
   })
 
   vim.fn.setqflist(all_diagnostics, 'r')
-  local open = false
-  if M.open_on_error then
-        open = true
-  end
-  vim.diagnostic.setqflist({open=open, title = M.title})
+  vim.diagnostic.setqflist({open=false, title = M.title})
   M.change_since_render = false
 end
 
