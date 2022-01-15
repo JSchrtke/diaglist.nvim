@@ -49,6 +49,8 @@ M.diagnostics_hook = function()
     M.debounced_populate_qflist()
   elseif M.debug then
     print('foreign quickfix, not populating')
+  elseif M.open_on_error and not util.is_qf_open then
+    api.nvim_command('cwindow')
   end
 end
 

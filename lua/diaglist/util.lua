@@ -48,5 +48,17 @@ M.get_qflist = function(opts)
   return qflist
 end
 
+M.is_qf_open = function ()
+    local last_win = vim.api.winnr("$")
+    local first_win = 1
+    for i = first_win, last_win, 1 do
+        local ft = vim.api.getwinvar(i, "&filetype")
+        if ft == "qf" then
+            return true
+        end
+    end
+    return false
+end
+
 
 return M
