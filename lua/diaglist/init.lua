@@ -2,6 +2,7 @@ local M = {
   debug = false,
   buf_clients_only = true,
   debounce_ms = 150,
+  open_on_error = true,
 }
 
 local q = require('diaglist.quickfix')
@@ -40,6 +41,8 @@ function M.init(opts)
   end
 
   q.buf_clients_only = M.buf_clients_only
+
+  q.open_on_error = M.open_on_error
 
   q.init()
 end
