@@ -63,6 +63,8 @@ function M.diagnostics_hook(diag_changed)
   end
   if M.auto_open and diag_changed then
       print("open qf list now")
+      vim.api.nvim_command("cwindow")
+      vim.api.nvim_command("wincmd p")
   end
   l.diagnostics_hook()
   q.diagnostics_hook()
