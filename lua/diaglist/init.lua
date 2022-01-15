@@ -65,6 +65,9 @@ function M.diagnostics_hook(diag_changed)
   end
 
   if diag_changed and M.open_on_error then
+    if M.debug then
+        print("should open qf list now")
+    end
     vim.api.nvim_command('cwindow')
   end
 
