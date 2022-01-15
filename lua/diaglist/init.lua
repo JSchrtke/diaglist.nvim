@@ -61,13 +61,13 @@ function M.diagnostics_hook(diag_changed)
       print("winenter hook")
     end
   end
+  l.diagnostics_hook()
+  q.diagnostics_hook()
   if M.auto_open and diag_changed then
       print("open qf list now")
       vim.api.nvim_command("cwindow")
       vim.api.nvim_command("wincmd p")
   end
-  l.diagnostics_hook()
-  q.diagnostics_hook()
 end
 
 return M
