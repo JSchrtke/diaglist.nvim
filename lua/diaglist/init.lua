@@ -2,6 +2,7 @@ local M = {
   debug = false,
   buf_clients_only = true,
   debounce_ms = 150,
+  auto_open = true
 }
 
 local q = require('diaglist.quickfix')
@@ -59,6 +60,9 @@ function M.diagnostics_hook(diag_changed)
     else
       print("winenter hook")
     end
+  end
+  if M.auto_open and diag_changed then
+      print("open qf list now")
   end
   l.diagnostics_hook()
   q.diagnostics_hook()
